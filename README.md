@@ -265,10 +265,10 @@ Each input pixel is normalized before being passed to the neural network.
 
 | Member | Responsibility |
 |---|---|
-| **Member 1** | Data Pipeline & Preprocessing |
-| **Member 2** | Model Architecture & Algorithms |
-| **Member 3** | Training Loop & Optimization |
-| **Member 4** | Integration, CLI & Inference |
+| **Simon Vanden Auweele** | Data Pipeline & Preprocessing |
+| **Nguyen Phuc Khanh & Ha Thanh Tung** | Model Architecture & Algorithms |
+| **Hoang Van Tra & Nguyen Tri Dai** | Training Loop & Optimization |
+| **Le Minh Tuan & Tri Dai** | Integration, CLI & Inference |
 
 ---
 
