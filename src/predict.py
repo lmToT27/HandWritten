@@ -1,6 +1,6 @@
 import numpy as np
 # TODO: Import forward_prop, get_predictions from src.model
-from PIL import Image
+import cv2
 from src.model import forward_prop
 from src.train import get_predictions
 # TODO: Import load_mapping from src.data_loader
@@ -13,19 +13,17 @@ def preprocess_image(image_path):
     """
     # TODO: Read image from image_path
     # TODO: Convert image to Grayscale
-    img = Image.open(image_path).convert("L")  # Convert to grayscale
+    img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)  # Read as grayscale
 
     # TODO: Invert colors if necessary (ensure white text on black background like EMNIST)
-    img_array = np.array(img)
-    if np.mean(img_array) > 127:
-        img_array = 255 - img_array
-        img = Image.fromarray(img_array)
+    if np.mean(img) > 127:
+        img = cv2.bitwise_not(img)
 
     # TODO: Resize to 28x28
-    img = img.resize((28, 28), Image.LANCZOS)
+    img = cv2.resize(img, (28, 28), interpolation=cv2.INTER_AREA)
 
     # TODO: Flatten image into a vector of shape (784, 1) and divide by 255.0
-    X = np.array(img).reshape(784, 1) / 255.0
+    X = img.reshape(784, 1) / 255.0
     # TODO: Return this vector
     return X
 
